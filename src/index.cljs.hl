@@ -1,0 +1,114 @@
+(page "index.html"
+  (:require
+    [tailrecursion.hoplon.reload :refer [reload-all]]))
+
+(reload-all 1000)
+
+(defn register! [fname lname email pass pass2]
+  (println "register! called with:" fname lname email "***" "***"))
+
+(html
+  (head
+   (link :href "css/bootstrap.css" :rel "stylesheet")
+   (link :href "css/bootstrapValidator.css" :rel "stylesheet")
+   (script :src "js/bootstrap.js" :type "text/javascript")
+   (script :src "js/bootstrapValidator.js" :type "text/javascript"))
+ (body
+  (div :class "container"
+       (div :class "row"
+            (div :class "col-md-6"
+                 (form :id "signupForm"
+                       :role "form"
+                       :class "form-horizontal"
+                       :on-submit #(register! (val-id "fname") (val-id "lname")
+                                              (val-id "email") (val-id "pass") (val-id "pass2"))
+                       (legend "Create account (programmatic validation)")
+                       (div :class "form-group"
+                            (label :for "fname" :class "col-xs-4 control-label" "First name:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "text" :id "fname" :autofocus ""
+                                        :placeholder "Anna")))
+
+                       (div :class "form-group"
+                            (label :for "lname" :class "col-xs-4 control-label" "Last name:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "text" :id "lname"
+                                        :placeholder "Andersson")))
+
+                       (div :class "form-group"
+                            (label :for "email" :class "col-xs-4 control-label" "Email:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "email" :id "email"
+                                        :placeholder "anna.andersson@example.com")))
+
+                       (div :class "form-group"
+                            (label :for "pass" :class "col-xs-4 control-label" "Password:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "password" :id "pass"
+                                        :placeholder "Password")))
+
+                       (div :class "form-group"
+                            (label :for "pass2" :class "col-xs-4 control-label" "Confirm password:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "password" :id "pass2"
+                                        :placeholder "Your password again")))
+
+                       (div :class "form-group"
+                            (div :class "col-xs-offset-4 col-xs-8"
+                                 (button :class "btn btn-primary" :type "submit" "Create account")))))
+            (script :src "js/signupForm.js" :type "text/javascript")
+            (div :class "col-md-6"
+                 (form :id "signupForm2"
+                       :role "form"
+                       :class "form-horizontal"
+                       :on-submit #(register! (val-id "fname") (val-id "lname")
+                                              (val-id "email") (val-id "pass") (val-id "pass2"))
+                       :data-bv-feedbackicons-valid "glyphicon glyphicon-ok"
+                       :data-bv-feedbackicons-invalid "glyphicon glyphicon-remove"
+                       :data-bv-feedbackicons-validating "glyphicon glyphicon-refresh"
+                       (legend "Create account (declarative validation)")
+                       (div :class "form-group"
+                            (label :for "fname" :class "col-xs-4 control-label" "First name:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "text" :id "fname" :autofocus ""
+                                        :placeholder "Anna"
+                                        :data-bv-notempty "true"
+                                        :data-bv-notempty-message "The first name is required and cannot be empty")))
+
+                       (div :class "form-group"
+                            (label :for "lname" :class "col-xs-4 control-label" "Last name:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "text" :id "lname"
+                                        :placeholder "Andersson"
+                                        :data-bv-notempty "true"
+                                        :data-bv-notempty-message "The last name is required and cannot be empty")))
+
+                       (div :class "form-group"
+                            (label :for "email" :class "col-xs-4 control-label" "Email:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "text" :id "email"
+                                        :placeholder "anna.andersson@example.com"
+                                        :data-bv-notempty "true"
+                                        :data-bv-notempty-message "The email is required and cannot be empty"
+                                        :data-bv-emailaddress "true"
+                                        :data-bv-emailaddress-message "The email address is not valid")))
+
+                       (div :class "form-group"
+                            (label :for "pass" :class "col-xs-4 control-label" "Password:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "password" :id "pass"
+                                        :placeholder "Password"
+                                        :data-bv-notempty "true"
+                                        :data-bv-notempty-message "The password is required and cannot be empty")))
+
+                       (div :class "form-group"
+                            (label :for "pass2" :class "col-xs-4 control-label" "Confirm password:")
+                            (div :class "col-xs-8"
+                                 (input :class "form-control" :type "password" :id "pass2"
+                                        :placeholder "Your password again"
+                                        :data-bv-notempty "true"
+                                        :data-bv-notempty-message "The password confirmation is required and cannot be empty")))
+
+                       (div :class "form-group"
+                            (div :class "col-xs-offset-4 col-xs-8"
+                                 (button :class "btn btn-primary" :type "submit" "Create account")))))))))
