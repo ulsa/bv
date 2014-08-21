@@ -9,8 +9,7 @@
 
 (html
   (head
-   (link :href "css/bootstrap.css" :rel "stylesheet")
-   (link :href "css/bootstrapValidator.css" :rel "stylesheet"))
+   (link :href "css/bootstrap.css" :rel "stylesheet"))
  (body
   (div :class "container"
        (div :class "row"
