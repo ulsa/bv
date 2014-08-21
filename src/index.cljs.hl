@@ -84,7 +84,7 @@
                        (div :class "form-group"
                             (label :for "email" :class "col-xs-4 control-label" "Email:")
                             (div :class "col-xs-8"
-                                 (input :class "form-control" :type "text" :id "email"
+                                 (input :class "form-control" :type "email" :id "email"
                                         :placeholder "anna.andersson@example.com"
                                         :data-bv-notempty "true"
                                         :data-bv-notempty-message "The email is required and cannot be empty"
