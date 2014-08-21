@@ -24,30 +24,35 @@
                             (label :for "fname" :class "col-xs-4 control-label" "First name:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "text" :id "fname" :autofocus ""
+                                        :name "fname"
                                         :placeholder "Anna")))
 
                        (div :class "form-group"
                             (label :for "lname" :class "col-xs-4 control-label" "Last name:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "text" :id "lname"
+                                        :name "lname"
                                         :placeholder "Andersson")))
 
                        (div :class "form-group"
                             (label :for "email" :class "col-xs-4 control-label" "Email:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "email" :id "email"
+                                        :name "email"
                                         :placeholder "anna.andersson@example.com")))
 
                        (div :class "form-group"
                             (label :for "pass" :class "col-xs-4 control-label" "Password:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "password" :id "pass"
+                                        :name "pass"
                                         :placeholder "Password")))
 
                        (div :class "form-group"
                             (label :for "pass2" :class "col-xs-4 control-label" "Confirm password:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "password" :id "pass2"
+                                        :name "pass2"
                                         :placeholder "Your password again")))
 
                        (div :class "form-group"
@@ -69,6 +74,7 @@
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "text" :id "fname" :autofocus ""
                                         :placeholder "Anna"
+                                        :name "fname"
                                         :data-bv-notempty "true"
                                         :data-bv-notempty-message "The first name is required and cannot be empty")))
 
@@ -76,6 +82,7 @@
                             (label :for "lname" :class "col-xs-4 control-label" "Last name:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "text" :id "lname"
+                                        :name "lname"
                                         :placeholder "Andersson"
                                         :data-bv-notempty "true"
                                         :data-bv-notempty-message "The last name is required and cannot be empty")))
@@ -84,6 +91,7 @@
                             (label :for "email" :class "col-xs-4 control-label" "Email:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "email" :id "email"
+                                        :name "email"
                                         :placeholder "anna.andersson@example.com"
                                         :data-bv-notempty "true"
                                         :data-bv-notempty-message "The email is required and cannot be empty"
@@ -94,6 +102,7 @@
                             (label :for "pass" :class "col-xs-4 control-label" "Password:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "password" :id "pass"
+                                        :name "pass"
                                         :placeholder "Password"
                                         :data-bv-notempty "true"
                                         :data-bv-notempty-message "The password is required and cannot be empty")))
@@ -102,6 +111,7 @@
                             (label :for "pass2" :class "col-xs-4 control-label" "Confirm password:")
                             (div :class "col-xs-8"
                                  (input :class "form-control" :type "password" :id "pass2"
+                                        :name "pass2"
                                         :placeholder "Your password again"
                                         :data-bv-notempty "true"
                                         :data-bv-notempty-message "The password confirmation is required and cannot be empty")))

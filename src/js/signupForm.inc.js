@@ -12,19 +12,9 @@ $(document).ready(function() {
         message: 'The first name is not valid',
         validators: {
           notEmpty: {
-            message: 'The first name is required and cannot be empty'
-          },
-          stringLength: {
-            min: 6,
-            max: 30,
-            message: 'The first name must be more than 6 and less than 30 characters long'
-          },
-          regexp: {
-            regexp: /^[a-zA-Z0-9]+$/,
-            message: 'The first name can only consist of alphabetical and number'
           },
           different: {
-            field: 'password',
+            field: 'pass',
             message: 'The first name and password cannot be the same as each other'
           }
         }
@@ -32,14 +22,26 @@ $(document).ready(function() {
       email: {
         validators: {
           notEmpty: {
-            message: 'The email address is required and cannot be empty'
           },
           emailAddress: {
-            message: 'The email address is not a valid'
           }
         }
       },
       pass: {
+        validators: {
+          notEmpty: {
+          },
+          different: {
+            field: 'fname',
+            message: 'The password cannot be the same as the first name'
+          },
+          stringLength: {
+            min: 6,
+            message: 'The password must have at least 6 characters'
+          }
+        }
+      },
+      pass2: {
         validators: {
           notEmpty: {
             message: 'The password is required and cannot be empty'
@@ -49,8 +51,12 @@ $(document).ready(function() {
             message: 'The password cannot be the same as the first name'
           },
           stringLength: {
-            min: 8,
-            message: 'The password must have at least 8 characters'
+            min: 6,
+            message: 'The password must have at least 6 characters'
+          },
+          identical: {
+            field: 'pass',
+            message: 'The confirm password must be the same as password'
           }
         }
       }
