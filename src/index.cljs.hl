@@ -71,7 +71,7 @@
                        :data-bv-feedbackicons-valid "glyphicon glyphicon-ok"
                        :data-bv-feedbackicons-invalid "glyphicon glyphicon-remove"
                        :data-bv-feedbackicons-validating "glyphicon glyphicon-refresh"
-                       (legend "Create account (declarative validation)")
+                       (legend "Create account (declarative validation, not working)")
                        (div :class "form-group"
                             (label :for "fname" :class "col-xs-4 control-label" "First name:")
                             (div :class "col-xs-8"
