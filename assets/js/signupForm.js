@@ -12,10 +12,6 @@ $(document).ready(function() {
         message: 'The first name is not valid',
         validators: {
           notEmpty: {
-          },
-          different: {
-            field: 'pass',
-            message: 'The first name and password cannot be the same as each other'
           }
         }
       },
@@ -31,10 +27,6 @@ $(document).ready(function() {
         validators: {
           notEmpty: {
           },
-          different: {
-            field: 'fname',
-            message: 'The password cannot be the same as the first name'
-          },
           stringLength: {
             min: 6,
             message: 'The password must have at least 6 characters'
@@ -44,11 +36,7 @@ $(document).ready(function() {
       pass2: {
         validators: {
           notEmpty: {
-            message: 'The password is required and cannot be empty'
-          },
-          different: {
-            field: 'fname',
-            message: 'The password cannot be the same as the first name'
+            message: 'The confirm password is required and cannot be empty'
           },
           stringLength: {
             min: 6,
