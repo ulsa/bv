@@ -6,13 +6,29 @@
 
 (defn register! [fname lname email pass pass2]
   (println "register! called with:" fname lname email "***" "***"))
-
+(with-init!
+  (.bootstrapValidator
+   (js/jQuery "#signupForm")
+   (clj->js {"feedbackIcons" {"valid" "glyphicon glyphicon-ok"
+                              "invalid" "glyphicon glyphicon-remove"
+                              "validating" "glyphicon glyphicon-refresh"}
+             "fields" {"fname" {"message" "First name is not valid"
+                                "validators" {"notEmpty" {}}}
+                       "lname" {"validators" {"notEmpty" {}}}
+                       "email" {"validators" {"notEmpty" {}
+                                              "emailAddress" {}}}
+                       "pass" {"validators" {"notEmpty" {}
+                                             "stringLength" {"min" 6
+                                                             "message" "The password must have at least 6 characters"}}}
+                       "pass2" {"validators" {"notEmpty" {}
+                                              "stringLength" {"min" 6
+                                                             "message" "The password must have at least 6 characters"}
+                                              "identical" {"field" "pass"
+                                                           "message" "Confirm password must be the same as password"}}}}})))
 (html
   (head
    (link :href "css/bootstrap.css" :rel "stylesheet")
-   (link :href "css/bootstrapValidator.css" :rel "stylesheet")
-   (script :src "js/bootstrap.js" :type "text/javascript")
-   (script :src "js/bootstrapValidator.js" :type "text/javascript"))
+   (link :href "css/bootstrapValidator.css" :rel "stylesheet"))
  (body
   (div :class "container"
        (div :class "row"
@@ -61,7 +77,7 @@
                        (div :class "form-group"
                             (div :class "col-xs-offset-4 col-xs-8"
                                  (button :class "btn btn-primary" :type "submit" "Create account")))))
-            (script :src "js/signupForm.js" :type "text/javascript")
+
             (div :class "col-md-6"
                  (form :id "signupForm2"
                        :role "form"
